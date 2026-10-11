@@ -1,6 +1,6 @@
 Video: https://youtu.be/iT1PmYgGK1I 
 
-El proposito de esta topologia es demostrar el funcionamiento de una LAN DMZ y como gestionarla.
+El proposito de esta topologia es demostrar el funcionamiento de una LAN DMZ y como gestionarla. Aislar los servidores en una DMZ y controlar con el FortiGate quién entra y qué sale. Así, si un servidor se compromete, no se llega a la red interna.
 
 ## Direccionamiento VLSM 
 
