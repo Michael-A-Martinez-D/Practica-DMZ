@@ -1,0 +1,80 @@
+en
+conf t
+hostname SW1
+
+enable secret T$sun@mi
+username admin privilege 15 secret T$sun@mi
+
+ip domain-name lab.2025140
+crypto key generate rsa
+2048
+
+ip ssh version 2
+
+line vty 0 4
+ login local
+ transport input ssh
+exit
+
+vlan 10
+ exit
+vlan 20
+ exit
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20
+
+interf g0/0
+ description Trunk hacia FortiGate
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20
+
+ ip dhcp snooping trust
+
+ no shutdown
+exit
+
+interf g0/1
+ description Acceso VLAN10
+ switchport mode access
+ switchport access vlan 10
+
+
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+ no shutdown
+exit
+
+interf g0/2
+ description Acceso VLAN20
+ switchport mode access
+ switchport access vlan 20
+ 
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+ no shutdown
+exit
+
+
+interf range g0/1 - 2
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+exit
+
+interface g0/3
+ shutdown
+exit
+
+interf range g1/0-3
+ shutdown
+exit
+
+
+do wr

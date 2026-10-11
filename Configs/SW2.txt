@@ -1,0 +1,70 @@
+en
+conf t
+hostname SW2
+
+enable secret T$sun@mi
+username admin privilege 15 secret T$sun@mi
+
+ip domain-name lab.2025140
+crypto key generate rsa
+2048
+
+ip ssh version 2
+
+line vty 0 4
+ login local
+ transport input ssh
+exit
+
+
+
+interf g0/0
+ description Hacia FortiGate
+ switchport mode access
+ no shutdown
+
+interf g0/1
+ description Hacia Web Caja
+ switchport mode access
+
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+ no shutdown
+
+interf g0/2
+ description Hacia Web Inventario
+ switchport mode access
+
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+ no shutdown
+
+interf g0/3
+ description Hacia DB Server
+ switchport mode access
+
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+ no shutdown
+exit
+
+
+interf range g0/1 - 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+exit
+
+interf range g1/0-3
+ shutdown
+exit
+
+do wr
