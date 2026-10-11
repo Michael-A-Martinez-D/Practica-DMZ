@@ -21,8 +21,8 @@ Red base: `14.10.0.0/16` (últimos 4 dígitos de la matrícula)
 | FortiGate (VLAN10) | VLAN 10 | 14.10.10.1/25 | - |
 | FortiGate (VLAN20) | VLAN 20 | 14.10.20.1/25 | - |
 | FortiGate (DMZ) | DMZ | 14.10.30.1/28 | - |
-| Usuarios VLAN 10 (DHCP) | VLAN 10 | 14.10.10.10 - 14.10.10.120 | 14.10.10.1 |
-| Usuarios VLAN 20 (DHCP) | VLAN 20 | 14.10.20.10 - 14.10.20.120 | 14.10.20.1 |
+| Usuarios VLAN 10 (DHCP) | VLAN 10 | 14.10.10.1 - 14.10.10.126 | 14.10.10.1 |
+| Usuarios VLAN 20 (DHCP) | VLAN 20 | 14.10.20.1 - 14.10.20.126 | 14.10.20.1 |
 | Web Server: Sistema de Caja | DMZ | 14.10.30.2/28 | 14.10.30.1 |
 | Web Server: Sistema de Inventario | DMZ | 14.10.30.3/28 | 14.10.30.1 |
 | DB Server | DMZ | 14.10.30.4/28 | 14.10.30.1 |
