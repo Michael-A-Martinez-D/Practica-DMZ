@@ -1,8 +1,8 @@
 Video: https://youtu.be/iT1PmYgGK1I 
 
-El proposito de esta topologia es demostrar el funcionamiento de una LAN DMZ y como gestionarla
+El proposito de esta topologia es demostrar el funcionamiento de una LAN DMZ y como gestionarla.
 
-## Direccionamiento VLSM - Infraestructura 1
+## Direccionamiento VLSM 
 
 Matricula: 2025-1410
 
